@@ -198,30 +198,26 @@ const convertTagNode = (
  * Recursively process convertDOMToMarkdown to get the markdown string
  */
 const getRecursionMarks = (
-  node: DOMNode,
+  node: Element,
   image: OptionTypes['image'],
   markStyle: OptionTypes['markStyle'],
 ) => {
-  if (node.type === 'tag') {
-    return node.childNodes
-      .map((child) => {
-        const childNode =
-          child.type === 'tag' || child.type === 'text' ? child : null;
+  return node.childNodes
+    .map((child) => {
+      const childNode =
+        child.type === 'tag' || child.type === 'text' ? child : null;
 
-        if (childNode === null) {
-          return '';
-        }
+      if (childNode === null) {
+        return '';
+      }
 
-        return convertDOMToMarkdown({
-          nodes: [childNode],
-          image,
-          markStyle,
-        });
-      })
-      .join('');
-  }
-
-  return '';
+      return convertDOMToMarkdown({
+        nodes: [childNode],
+        image,
+        markStyle,
+      });
+    })
+    .join('');
 };
 
 /**
