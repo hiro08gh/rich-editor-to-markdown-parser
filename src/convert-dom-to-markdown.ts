@@ -137,13 +137,14 @@ const convertTagNode = (
       return marks;
     } else {
       const marks = getRecursionMarks(node, image, markStyle);
+      const endLine = node.next ? '\n' : '';
 
       if (node.parentNode?.type === 'tag' && node.parentNode?.name === 'ol') {
         const olNum = Array.from(node.parentNode.children).indexOf(node) + 1;
 
-        return olNum + ' ' + marks + '\n';
+        return olNum + ' ' + marks + endLine;
       } else {
-        return '-' + ' ' + marks + '\n';
+        return '-' + ' ' + marks + endLine;
       }
     }
   }
