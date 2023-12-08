@@ -1,10 +1,10 @@
 {
   "name": "rich-editor-to-markdown-parser",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "",
   "main": "./dist/rich-editor-to-markdown-parser.js",
   "module": "./dist/esm/rich-editor-to-markdown-parser.js",
-  "unpkg": "./dist/umd/rich-editor-to-markdown-parser.js",
+  "types": "./dist/rich-editor-to-markdown-parser.d.ts",
   "scripts": {
     "build": "tsup",
     "watch": "tsup src/index.ts --watch",
@@ -16,6 +16,9 @@
   "keywords": [],
   "author": "hiro08",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@types/jest": "^29.5.10",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
