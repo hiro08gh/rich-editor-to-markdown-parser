@@ -24,15 +24,15 @@ describe('Code Block', () => {
 
   test('should return convert code block with language', () => {
     const parsed = HTMLToMarkdownParser(
-      '<pre><code class="language-1c">console.log(&apos;test&apos;)</code></pre>',
+      '<pre><code class="language-javascript">console.log(&apos;test&apos;)</code></pre>',
     );
-    expect(parsed).toBe("```language-1c\nconsole.log('test')\n```");
+    expect(parsed).toBe("```javascript\nconsole.log('test')\n```");
   });
 
   test('should return convert code block with filename', () => {
     const parsed = HTMLToMarkdownParser(
-      '<div data-filename="filename"><pre><code class="language-1c">console.log(&apos;test&apos;)</code></pre></div>',
+      '<div data-filename="filename"><pre><code class="language-javascript">console.log(&apos;test&apos;)</code></pre></div>',
     );
-    expect(parsed).toBe("```language-1c:filename\nconsole.log('test')\n```");
+    expect(parsed).toBe("```javascript:filename\nconsole.log('test')\n```");
   });
 });

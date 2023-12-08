@@ -104,7 +104,9 @@ const convertTagNode = (
     if (node.name === 'pre') {
       const marks = getRecursionMarks(node, image, markStyle);
 
-      const language = getChildNodeClass(node).join('');
+      const language = getChildNodeClass(node)
+        .join('')
+        .replace('language-', '');
       const fileName =
         node.parentNode?.type === 'tag'
           ? node.parentNode.attribs['data-filename']
