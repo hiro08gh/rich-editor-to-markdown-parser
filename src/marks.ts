@@ -26,6 +26,8 @@ const createTextMark = (
       return '~~' + text + '~~';
     case 'u':
       return '<u>' + text + '</u>';
+    case 'blockquote':
+      return '>' + ' ' + text;
     case 'br':
       return '\n';
     default:

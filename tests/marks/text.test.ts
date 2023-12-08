@@ -56,4 +56,11 @@ describe('Text', () => {
     );
     expect(parsed).toBe('[ここにリンク](https://example.com)');
   });
+
+  test('should return convert blockquote to >', () => {
+    const parsed = HTMLToMarkdownParser(
+      '<blockquote><p>Hello World!</p></blockquote>',
+    );
+    expect(parsed).toBe('> Hello World!');
+  });
 });
