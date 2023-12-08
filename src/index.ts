@@ -15,7 +15,7 @@ export const RichEditorToMarkdownParser = (
   }
 
   if (!html) {
-    return [];
+    return '';
   }
 
   return HTMLToMarkdownParser(html, options);
