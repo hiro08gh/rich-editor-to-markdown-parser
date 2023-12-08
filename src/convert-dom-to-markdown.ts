@@ -90,7 +90,6 @@ const convertTagNode = (
       return marks;
     } else {
       const { src, alt, width, height } = node.attribs;
-      // TODO refactoring
       const sizeQuery = image.size ? '?w=' + width + '&h=' + height : '';
 
       return createImageMark(src, alt, sizeQuery + image.query);
@@ -120,9 +119,7 @@ const convertTagNode = (
     if (node.name === 'code') {
       const marks = getRecursionMarks(node, image, markStyle);
       const isCodeBlock =
-        node.parentNode?.type === 'tag'
-          ? node.parentNode?.name === 'pre'
-          : undefined;
+        node.parentNode?.type === 'tag' && node.parentNode?.name === 'pre';
 
       return isCodeBlock ? marks : createInlineCodeMark(marks);
     }
@@ -131,19 +128,18 @@ const convertTagNode = (
   if (isListElement(node)) {
     if (node.name === 'ul' || node.name === 'ol') {
       const marks = getRecursionMarks(node, image, markStyle);
-      const prev =
-        node.parentNode?.type === 'tag' && node.parentNode?.name === 'li'
-          ? '\n' + '  ' + marks
-          : marks;
+      if (node.parentNode?.type === 'tag' && node.parentNode?.name === 'li') {
+        return '\n' + '  ' + marks;
+      }
 
-      return prev;
+      return marks;
     } else {
       const marks = getRecursionMarks(node, image, markStyle);
 
       if (node.parentNode?.type === 'tag' && node.parentNode?.name === 'ol') {
-        const index = Array.from(node.parentNode.children).indexOf(node);
+        const olNum = Array.from(node.parentNode.children).indexOf(node) + 1;
 
-        return index + 1 + ' ' + marks + '\n';
+        return olNum + ' ' + marks + '\n';
       } else {
         return '-' + ' ' + marks + '\n';
       }
@@ -159,19 +155,19 @@ const convertTagNode = (
 
     if (node.name === 'tr') {
       const marks = getRecursionMarks(node, image, markStyle);
-      const prev = node.prev
+      const head = node.prev
         ? ''
         : '| --- '.repeat(node.children.length) + '|' + '\n';
 
-      return marks + prev;
+      return marks + head;
     }
 
     if (node.name === 'th' || node.name === 'td') {
       const marks = getRecursionMarks(node, image, markStyle);
-      const next = node.next ? '' : '\n';
-      const line = node.next ? ' ' : ' ' + '|';
+      const nextStr = node.next ? ' ' : ' ' + '|';
+      const endLine = node.next ? '' : '\n';
 
-      return '|' + ' ' + marks + line + next;
+      return '|' + ' ' + marks + nextStr + endLine;
     }
   }
 
@@ -184,8 +180,7 @@ const convertTagNode = (
 
   if (node.children.length !== 0) {
     convertDOMToMarkdown({
-      // @ts-expect-error TODO: fix type
-      nodes: node.children,
+      nodes: node.children as DOMNode[],
       image,
       markStyle,
     });
