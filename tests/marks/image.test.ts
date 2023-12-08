@@ -29,4 +29,13 @@ describe('Image', () => {
       '![](https://images.microcms-assets.io/assets/service/test/file.png?w=1200&h=630?format=webp)',
     );
   });
+
+  test('should return convert img with link', () => {
+    const parsed = HTMLToMarkdownParser(
+      '<figure><a href="https://example.com"><img src="https://images.microcms-assets.io/assets/service/test/file.png" alt="" width="1200" height="630" /></a></figure>',
+    );
+    expect(parsed).toBe(
+      '[![](https://images.microcms-assets.io/assets/service/test/file.png)](https://example.com)',
+    );
+  });
 });
