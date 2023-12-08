@@ -20,13 +20,15 @@ import {
   isCustomClassElement,
 } from './utils';
 
-type Args = {
+const convertDOMToMarkdown = ({
+  nodes,
+  image,
+  markStyle,
+}: {
   nodes: DOMNode[];
   image: OptionTypes['image'];
   markStyle: OptionTypes['markStyle'];
-};
-
-const convertDOMToMarkdown = ({ nodes, image, markStyle }: Args): string => {
+}): string => {
   const result = [];
 
   for (const node of nodes) {
@@ -68,7 +70,7 @@ const convertTagNode = (
 ): string => {
   if (isTextElement(node)) {
     const marks = getRecursionMarks(node, image, markStyle);
-    return createTextMark(node.name, marks, markStyle);
+    return createTextMark({ tagName: node.name, marks, markStyle });
   }
 
   if (isHorizontalRuleElement(node)) {
@@ -92,7 +94,7 @@ const convertTagNode = (
       const { src, alt, width, height } = node.attribs;
       const sizeQuery = image.size ? '?w=' + width + '&h=' + height : '';
 
-      return createImageMark(src, alt, sizeQuery + image.query);
+      return createImageMark({ src, alt, query: sizeQuery + image.query });
     }
   }
   if (isCodeElement(node)) {
@@ -113,7 +115,7 @@ const convertTagNode = (
           ? node.parentNode.attribs['data-filename']
           : undefined;
 
-      return createCodeBlockMark(marks, markStyle, language, fileName);
+      return createCodeBlockMark({ marks, markStyle, language, fileName });
     }
 
     if (node.name === 'code') {

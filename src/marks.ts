@@ -1,33 +1,37 @@
 import { OptionTypes } from './options';
 
-const createTextMark = (
-  tagName: string,
-  text: string,
-  markStyle: OptionTypes['markStyle'],
-) => {
+const createTextMark = ({
+  tagName,
+  marks,
+  markStyle,
+}: {
+  tagName: string;
+  marks: string;
+  markStyle: OptionTypes['markStyle'];
+}) => {
   switch (tagName) {
     case 'p':
-      return text;
+      return marks;
     case 'h1':
-      return '#' + ' ' + text;
+      return '#' + ' ' + marks;
     case 'h2':
-      return '##' + ' ' + text;
+      return '##' + ' ' + marks;
     case 'h3':
-      return '###' + ' ' + text;
+      return '###' + ' ' + marks;
     case 'h4':
-      return '####' + ' ' + text;
+      return '####' + ' ' + marks;
     case 'h5':
-      return '#####' + ' ' + text;
+      return '#####' + ' ' + marks;
     case 'strong':
-      return markStyle.strong + text + markStyle.strong;
+      return markStyle.strong + marks + markStyle.strong;
     case 'em':
-      return markStyle.em + text + markStyle.em;
+      return markStyle.em + marks + markStyle.em;
     case 's':
-      return '~~' + text + '~~';
+      return '~~' + marks + '~~';
     case 'u':
-      return '<u>' + text + '</u>';
+      return '<u>' + marks + '</u>';
     case 'blockquote':
-      return '>' + ' ' + text;
+      return '>' + ' ' + marks;
     case 'br':
       return '\n';
     default:
@@ -42,7 +46,15 @@ const createHorizontalRuleMark = (
   return marks + markStyle.hr;
 };
 
-const createImageMark = (src: string, alt: string, query: string) => {
+const createImageMark = ({
+  src,
+  alt,
+  query,
+}: {
+  src: string;
+  alt: string;
+  query: string;
+}) => {
   return `![${alt}](${src}${query})`;
 };
 
@@ -50,15 +62,26 @@ const createLinkMark = (marks: string, href: string) => {
   return `[${marks}](${href})`;
 };
 
-const createCodeBlockMark = (
-  text: string,
-  markStyle: OptionTypes['markStyle'],
-  language?: string,
-  fileName?: string,
-) => {
+const createCodeBlockMark = ({
+  marks,
+  markStyle,
+  language,
+  fileName,
+}: {
+  marks: string;
+  markStyle: OptionTypes['markStyle'];
+  language?: string;
+  fileName?: string;
+}) => {
   const fileNameMark = fileName ? ':' + fileName : '';
   return (
-    markStyle.pre + language + fileNameMark + '\n' + text + '\n' + markStyle.pre
+    markStyle.pre +
+    language +
+    fileNameMark +
+    '\n' +
+    marks +
+    '\n' +
+    markStyle.pre
   );
 };
 
