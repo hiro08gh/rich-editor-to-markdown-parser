@@ -1,5 +1,5 @@
 import type { DOMNode, Element, Text } from 'html-dom-parser';
-import type { OptionTypes } from './options';
+import type { OptionTypes, MarkStyle } from './options';
 import {
   createTextMark,
   createHorizontalRuleMark,
@@ -27,7 +27,7 @@ const convertDOMToMarkdown = ({
 }: {
   nodes: DOMNode[];
   image: OptionTypes['image'];
-  markStyle: OptionTypes['markStyle'];
+  markStyle: MarkStyle;
 }): string => {
   const result = [];
 
@@ -66,7 +66,7 @@ const convertTextNode = (node: Text): string => {
 const convertTagNode = (
   node: Element,
   image: OptionTypes['image'],
-  markStyle: OptionTypes['markStyle'],
+  markStyle: MarkStyle,
 ): string => {
   if (isTextElement(node)) {
     const marks = getRecursionMarks(node, image, markStyle);
@@ -92,9 +92,9 @@ const convertTagNode = (
       return marks;
     } else {
       const { src, alt, width, height } = node.attribs;
-      const sizeQuery = image.size ? '?w=' + width + '&h=' + height : '';
+      const sizeQuery = image?.size ? '?w=' + width + '&h=' + height : '';
 
-      return createImageMark({ src, alt, query: sizeQuery + image.query });
+      return createImageMark({ src, alt, query: sizeQuery + image?.query });
     }
   }
   if (isCodeElement(node)) {
@@ -198,7 +198,7 @@ const convertTagNode = (
 const getRecursionMarks = (
   node: Element,
   image: OptionTypes['image'],
-  markStyle: OptionTypes['markStyle'],
+  markStyle: MarkStyle,
 ) => {
   return node.childNodes
     .map((child) => {

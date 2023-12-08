@@ -1,4 +1,4 @@
-import { OptionTypes } from './options';
+import { OptionTypes, MarkStyle } from './options';
 
 const createTextMark = ({
   tagName,
@@ -7,7 +7,7 @@ const createTextMark = ({
 }: {
   tagName: string;
   marks: string;
-  markStyle: OptionTypes['markStyle'];
+  markStyle: MarkStyle;
 }) => {
   switch (tagName) {
     case 'p':
@@ -39,10 +39,7 @@ const createTextMark = ({
   }
 };
 
-const createHorizontalRuleMark = (
-  marks: string,
-  markStyle: OptionTypes['markStyle'],
-) => {
+const createHorizontalRuleMark = (marks: string, markStyle: MarkStyle) => {
   return marks + markStyle.hr;
 };
 
@@ -69,7 +66,7 @@ const createCodeBlockMark = ({
   fileName,
 }: {
   marks: string;
-  markStyle: OptionTypes['markStyle'];
+  markStyle: MarkStyle;
   language?: string;
   fileName?: string;
 }) => {
