@@ -7,6 +7,7 @@ import {
   createImageMark,
   createCodeBlockMark,
   createInlineCodeMark,
+  createCustomClass,
 } from './marks';
 import {
   isTextElement,
@@ -16,6 +17,7 @@ import {
   isImageElement,
   isCodeElement,
   isTableElement,
+  isCustomClassElement,
 } from './utils';
 
 type Args = {
@@ -171,6 +173,13 @@ const convertTagNode = (
 
       return '|' + ' ' + marks + line + next;
     }
+  }
+
+  if (isCustomClassElement(node)) {
+    const marks = getRecursionMarks(node, image, markStyle);
+    const { class: _class } = node.attribs;
+
+    return createCustomClass(marks, _class);
   }
 
   if (node.children.length !== 0) {

@@ -63,4 +63,11 @@ describe('Text', () => {
     );
     expect(parsed).toBe('> Hello World!');
   });
+
+  test('should return convert custom class', () => {
+    const parsed = HTMLToMarkdownParser(
+      '<p><span class="customClass">Hello World!</span></p>',
+    );
+    expect(parsed).toBe('<span=class="customClass">Hello World!</span>');
+  });
 });

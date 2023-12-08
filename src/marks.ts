@@ -66,6 +66,10 @@ const createInlineCodeMark = (marks: string) => {
   return '`' + marks + '`';
 };
 
+const createCustomClass = (marks: string, _class: string) => {
+  return `<span=class="${_class}">` + marks + '</span>';
+};
+
 export {
   createTextMark,
   createHorizontalRuleMark,
@@ -73,4 +77,5 @@ export {
   createImageMark,
   createCodeBlockMark,
   createInlineCodeMark,
+  createCustomClass,
 };

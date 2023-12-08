@@ -23,6 +23,7 @@ const IMAGE_ELEMENT = ['img', 'figure', 'figcaption'];
 const CODE_ELEMENT = ['div', 'pre', 'code'];
 const TABLE_ELEMENT = ['table', 'tbody', 'tr', 'th', 'td'];
 const LIST_ELEMENT = ['ul', 'ol', 'li'];
+const CUSTOM_CLASS_ELEMENT = ['span'];
 
 /**
  * Find target DOM element.
@@ -55,6 +56,10 @@ const isListElement = (node: Element) => {
   return find(LIST_ELEMENT, node.name);
 };
 
+const isCustomClassElement = (node: Element) => {
+  return node.attribs.class && find(CUSTOM_CLASS_ELEMENT, node.name);
+};
+
 const find = (elements: string[], name: string) => {
   return elements.some((v) => v === name);
 };
@@ -67,4 +72,5 @@ export {
   isImageElement,
   isCodeElement,
   isTableElement,
+  isCustomClassElement,
 };
