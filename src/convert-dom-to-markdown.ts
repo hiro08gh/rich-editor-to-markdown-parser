@@ -27,7 +27,7 @@ type Args = {
 };
 
 const convertDOMToMarkdown = ({ nodes, image, markStyle }: Args): string => {
-  let result = [];
+  const result = [];
 
   for (const node of nodes) {
     if (node.type === 'text') {
