@@ -18,7 +18,7 @@ const markdown = '<h1>Hello World!</h1><p>This <strong>html</strong> string is <
 parse(markdown); // # Hello World!\n\nThis **html** string is ~~convert ~~into [markdown.](https://exampe.com)
 ```
 
-## HTML parsed list
+## HTML list
 
 | HTML | Description |
 | --- | --- |
