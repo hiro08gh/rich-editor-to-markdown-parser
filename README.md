@@ -2,6 +2,8 @@
 
 Convert microCMS Rich Editor response to Markdown.
 
+<img width="1326" alt="スクリーンショット 0005-12-09 14 26 25" src="https://github.com/hiro08gh/rich-editor-to-markdown-parser/assets/39504660/68c9397f-1c80-45fa-97be-ca3fdc1e46ef">
+
 ## Installation
 
 ```
