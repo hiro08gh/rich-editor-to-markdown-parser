@@ -87,7 +87,7 @@ const createInlineCodeMark = (marks: string) => {
 };
 
 const createCustomClass = (marks: string, _class: string) => {
-  return `<span=class="${_class}">` + marks + '</span>';
+  return `<span class="${_class}">` + marks + '</span>';
 };
 
 export {

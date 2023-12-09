@@ -68,6 +68,6 @@ describe('Text', () => {
     const parsed = HTMLToMarkdownParser(
       '<p><span class="customClass">Hello World!</span></p>',
     );
-    expect(parsed).toBe('<span=class="customClass">Hello World!</span>');
+    expect(parsed).toBe('<span class="customClass">Hello World!</span>');
   });
 });
