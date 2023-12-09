@@ -13,9 +13,9 @@ npm install rich-editor-to-markdown-parser
 ```js
 import parse from 'rich-editor-to-markdown-parser';
 
-const markdown = '<h1>Hello World!</h1><p>This <strong>html</strong> string is <s>convert</s>into <a href="https://exampe.com">markdown.</a></p>'
+const html = '<h1>Hello World!</h1><p>This <strong>html</strong> string is <s>convert</s>into <a href="https://exampe.com">markdown.</a></p>'
 
-parse(markdown); // # Hello World!\n\nThis **html** string is ~~convert ~~into [markdown.](https://exampe.com)
+parse(html); // # Hello World!\n\nThis **html** string is ~~convert ~~into [markdown.](https://exampe.com)
 ```
 
 ## HTML list
