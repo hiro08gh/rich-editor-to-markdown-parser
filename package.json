@@ -1,6 +1,6 @@
 {
   "name": "rich-editor-to-markdown-parser",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "",
   "main": "./dist/rich-editor-to-markdown-parser.js",
   "module": "./dist/esm/rich-editor-to-markdown-parser.js",
