@@ -20,8 +20,7 @@ const html = '<h1>Hello World!</h1><p>This <strong>html</strong> string is <s>co
 parse(html); // # Hello World!\n\nThis **html** string is ~~convert ~~into [markdown.](https://exampe.com)
 ```
 
-※ Unsupported HTML tags are parsed as strings. Please perform appropriate processing such as escaping with a markdown parsing library.
-
+※ Unsupported HTML tags are parsed as strings. When converting markdown to HTML, consider sanitizing it using [DOMPurify](https://github.com/cure53/DOMPurify) or [sanitize-html](https://github.com/apostrophecms/sanitize-html).
 ## HTML list
 
 | HTML | Description |
