@@ -1,7 +1,7 @@
 {
   "name": "rich-editor-to-markdown-parser",
   "version": "1.0.0",
-  "description": "",
+  "description": "Rich Editor response convert to markdown.",
   "main": "./dist/rich-editor-to-markdown-parser.js",
   "module": "./dist/esm/rich-editor-to-markdown-parser.js",
   "types": "./dist/rich-editor-to-markdown-parser.d.ts",
@@ -13,7 +13,10 @@
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src"
   },
-  "keywords": [],
+  "keywords": [
+    "markdown",
+    "microCMS"
+  ],
   "author": "hiro08",
   "license": "MIT",
   "files": [
