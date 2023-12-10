@@ -91,9 +91,15 @@ const convertTagNode = (
       return marks;
     } else {
       const { src, alt, width, height } = node.attribs;
-      const sizeQuery = image?.size ? '?w=' + width + '&h=' + height : '';
+      const query = image.size || image.query ? '?' : '';
+      const and = image.size && image.query ? '&' : '';
+      const size = image?.size ? 'w=' + width + '&h=' + height : '';
 
-      return createImageMark({ src, alt, query: sizeQuery + image?.query });
+      return createImageMark({
+        src,
+        alt,
+        query: query + size + and + image?.query,
+      });
     }
   }
   if (isCodeElement(node)) {

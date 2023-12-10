@@ -26,7 +26,7 @@ describe('Image', () => {
       options,
     );
     expect(parsed).toBe(
-      '![](https://images.microcms-assets.io/assets/service/test/file.png?w=1200&h=630?format=webp)',
+      '![](https://images.microcms-assets.io/assets/service/test/file.png?w=1200&h=630&format=webp)',
     );
   });
 
