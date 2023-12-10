@@ -27,7 +27,7 @@ parse(html); // # Hello World!\n\nThis **html** string is ~~convert ~~into [mark
 | Heading |  |
 | Bold |  |
 | Italic |  |
-| Underline | Parsed with HTML tags. <u>text</u> |
+| Underline | Parsed with HTML tags |
 | Strike |  |
 | Code |  |
 | TextAlign | Not supported |
@@ -36,7 +36,7 @@ parse(html); // # Hello World!\n\nThis **html** string is ~~convert ~~into [mark
 | CodeBlock |  |
 | Table |  |
 | ListBullet | Nesting list is not supported |
-| ListOrdered | Nesting list is not supported. |
+| ListOrdered | Nesting list is not supported |
 | Link |  |
 | Image |  |
 | Embed | Not supported |
@@ -44,12 +44,12 @@ parse(html); // # Hello World!\n\nThis **html** string is ~~convert ~~into [mark
 
 ## Options
 
-| Option | Description |
-| --- | --- |
-| image.size | Contain width and height image size. ex) ?w=1200&h=630 |
-| image.query | Add image query in markdown. ex) ?format=webp |
-| markStyle.strong | ** or __ |
-| markStyle.em | *  or _ |
-| markStyle.li |  * or - or + |
-| markStyle.hr | --- or *** or ___ |
-| markStyle.pre | ``` or ~~~ |
+| Option | Description | Defualt |
+| --- | --- | --- |
+| image.size | Contain width and height image size. ex) ?w=1200&h=630 | false|
+| image.query | Add image query in markdown. ex) ?format=webp | '' |
+| markStyle.strong | ** or __ | ** |
+| markStyle.em | *  or _ | * |
+| markStyle.li | * or - or + | * |
+| markStyle.hr | --- or *** or ___ | --- |
+| markStyle.pre | ``` or ~~~ | ``` |
