@@ -40,7 +40,7 @@ parse(html); // # Hello World!\n\nThis **html** string is ~~convert ~~into [mark
 | Link |  |
 | Image |  |
 | Embed | Not supported |
-| Custom class | Parsed with HTML tags. <span class='class'></span> |
+| Custom class | Parsed with HTML tags |
 
 ## Options
 
