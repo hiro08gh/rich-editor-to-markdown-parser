@@ -43,16 +43,8 @@ const createHorizontalRuleMark = (marks: string, markStyle: MarkStyle) => {
   return marks + markStyle.hr;
 };
 
-const createImageMark = ({
-  src,
-  alt,
-  query,
-}: {
-  src: string;
-  alt: string;
-  query: string;
-}) => {
-  return `![${alt}](${src}${query})`;
+const createImageMark = ({ src, alt }: { src: string; alt: string }) => {
+  return `![${alt}](${src})`;
 };
 
 const createLinkMark = (marks: string, href: string) => {

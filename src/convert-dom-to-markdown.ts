@@ -90,15 +90,12 @@ const convertTagNode = (
 
       return marks;
     } else {
-      const { src, alt, width, height } = node.attribs;
-      const query = image.size || image.query ? '?' : '';
-      const and = image.size && image.query ? '&' : '';
-      const size = image?.size ? 'w=' + width + '&h=' + height : '';
+      const { alt } = node.attribs;
+      const imgUrl = buildImageUrl(node, image);
 
       return createImageMark({
-        src,
+        src: imgUrl,
         alt,
-        query: query + size + and + image?.query,
       });
     }
   }
@@ -230,6 +227,29 @@ const getChildNodeClass = (node: Element) => {
   return node.children
     .map((child) => (child.type === 'tag' ? child.attribs.class : undefined))
     .filter(Boolean);
+};
+
+const buildImageUrl = (
+  node: Element,
+  image: { size?: boolean; query?: string },
+) => {
+  const { src, width, height } = node.attribs;
+  const url = new URL(src);
+
+  if (image.size) {
+    url.searchParams.set('w', width?.toString() ?? '');
+    url.searchParams.set('h', height?.toString() ?? '');
+  }
+
+  if (image.query) {
+    const params = new URLSearchParams(image.query);
+
+    params.forEach((value, key) => {
+      url.searchParams.set(key, value);
+    });
+  }
+
+  return url.href;
 };
 
 export { convertDOMToMarkdown };
