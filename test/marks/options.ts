@@ -2,7 +2,7 @@ import { OptionTypes } from '../../src/options';
 
 export const options: OptionTypes = {
   image: {
-    size: true,
+    size: false,
     query: 'format=webp',
   },
   markStyle: {
