@@ -7,7 +7,7 @@ describe('Image', () => {
       '<figure><img src="https://images.microcms-assets.io/assets/service/test/file.png" alt="text" width="1200" height="630" /></figure>',
     );
     expect(parsed).toBe(
-      '![text](https://images.microcms-assets.io/assets/service/test/file.png)',
+      '![text](https://images.microcms-assets.io/assets/service/test/file.png?w=1200&h=630)',
     );
   });
 
@@ -16,7 +16,7 @@ describe('Image', () => {
       '<figure><img src="https://images.microcms-assets.io/assets/service/test/file.png" alt="" width="1200" height="630" /></figure>',
     );
     expect(parsed).toBe(
-      '![](https://images.microcms-assets.io/assets/service/test/file.png)',
+      '![](https://images.microcms-assets.io/assets/service/test/file.png?w=1200&h=630)',
     );
   });
 
@@ -26,7 +26,7 @@ describe('Image', () => {
       options,
     );
     expect(parsed).toBe(
-      '![](https://images.microcms-assets.io/assets/service/test/file.png?w=1200&h=630&format=webp)',
+      '![](https://images.microcms-assets.io/assets/service/test/file.png?format=webp)',
     );
   });
 
@@ -35,7 +35,7 @@ describe('Image', () => {
       '<figure><a href="https://example.com"><img src="https://images.microcms-assets.io/assets/service/test/file.png" alt="" width="1200" height="630" /></a></figure>',
     );
     expect(parsed).toBe(
-      '[![](https://images.microcms-assets.io/assets/service/test/file.png)](https://example.com)',
+      '[![](https://images.microcms-assets.io/assets/service/test/file.png?w=1200&h=630)](https://example.com)',
     );
   });
 });

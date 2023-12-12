@@ -30,7 +30,7 @@ export type MarkStyle = {
 const makeOptions = (options?: OptionTypes) => {
   return {
     image: {
-      size: options?.image?.size ?? false,
+      size: options?.image?.size ?? true,
       query: options?.image?.query ?? '',
     },
     markStyle: {
