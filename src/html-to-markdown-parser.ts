@@ -15,6 +15,8 @@ const HTMLToMarkdownParser = (html: string, options?: OptionTypes) => {
     return convertDOMToMarkdown({ nodes, image, markStyle });
   } else {
     console.error('Failed to parse HTML string.');
+
+    return '';
   }
 };
 
