@@ -133,20 +133,26 @@ const convertTagNode = (
     if (node.name === 'ul' || node.name === 'ol') {
       const marks = getRecursionMarks(node, image, markStyle);
       if (node.parentNode?.type === 'tag' && node.parentNode?.name === 'li') {
-        return '\n' + '  ' + marks;
+        return marks;
       }
 
       return marks;
     } else {
       const marks = getRecursionMarks(node, image, markStyle);
+      const addLine =
+        node.parent?.type === 'tag' &&
+        node.parent.prev &&
+        (node.parent.name === 'ul' || node.parent.name === 'ol')
+          ? '\n' + ' '.repeat(findDepth(node) - 1)
+          : '';
       const endLine = node.next ? '\n' : '';
 
       if (node.parentNode?.type === 'tag' && node.parentNode?.name === 'ol') {
         const olNum = Array.from(node.parentNode.children).indexOf(node) + 1;
 
-        return olNum + ' ' + marks + endLine;
+        return addLine + olNum + ' ' + marks + endLine;
       } else {
-        return '-' + ' ' + marks + endLine;
+        return addLine + '-' + ' ' + marks + endLine;
       }
     }
   }
@@ -250,6 +256,16 @@ const buildImageUrl = (
   }
 
   return url.href;
+};
+
+const findDepth = (node: Element, currentDepth = 0): number => {
+  const depth = currentDepth;
+
+  if (node.parent?.type === 'tag' && isListElement(node.parent)) {
+    return findDepth(node.parent, depth + 1);
+  }
+
+  return depth;
 };
 
 export { convertDOMToMarkdown };
