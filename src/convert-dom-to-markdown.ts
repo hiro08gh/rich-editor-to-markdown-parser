@@ -143,16 +143,20 @@ const convertTagNode = (
         node.parent?.type === 'tag' &&
         node.parent.prev &&
         (node.parent.name === 'ul' || node.parent.name === 'ol')
-          ? '\n' + ' '.repeat(findDepth(node) - 1)
+          ? ' '.repeat(findDepth(node) - 1)
+          : '';
+      const breakLine =
+        node.parent?.type === 'tag' && !node.prev && node.parent.prev
+          ? '\n'
           : '';
       const endLine = node.next ? '\n' : '';
 
       if (node.parentNode?.type === 'tag' && node.parentNode?.name === 'ol') {
         const olNum = Array.from(node.parentNode.children).indexOf(node) + 1;
 
-        return addLine + olNum + ' ' + marks + endLine;
+        return breakLine + addLine + olNum + ' ' + marks + endLine;
       } else {
-        return addLine + '-' + ' ' + marks + endLine;
+        return breakLine + addLine + '-' + ' ' + marks + endLine;
       }
     }
   }
