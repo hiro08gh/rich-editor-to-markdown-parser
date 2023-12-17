@@ -139,13 +139,13 @@ const convertTagNode = (
       return marks;
     } else {
       const marks = getRecursionMarks(node, image, markStyle);
-      const addLine =
+      const addSpace =
         node.parent?.type === 'tag' &&
         node.parent.prev &&
         (node.parent.name === 'ul' || node.parent.name === 'ol')
           ? ' '.repeat(findDepth(node) - 1)
           : '';
-      const breakLine =
+      const addLine =
         node.parent?.type === 'tag' && !node.prev && node.parent.prev
           ? '\n'
           : '';
@@ -154,9 +154,9 @@ const convertTagNode = (
       if (node.parentNode?.type === 'tag' && node.parentNode?.name === 'ol') {
         const olNum = Array.from(node.parentNode.children).indexOf(node) + 1;
 
-        return breakLine + addLine + olNum + ' ' + marks + endLine;
+        return addLine + addSpace + olNum + ' ' + marks + endLine;
       } else {
-        return breakLine + addLine + '-' + ' ' + marks + endLine;
+        return addLine + addSpace + '-' + ' ' + marks + endLine;
       }
     }
   }
