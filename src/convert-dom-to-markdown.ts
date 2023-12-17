@@ -139,7 +139,7 @@ const convertTagNode = (
       return marks;
     } else {
       const marks = getRecursionMarks(node, image, markStyle);
-      const addSpace =
+      const space =
         node.parent?.type === 'tag' &&
         node.parent.prev &&
         (node.parent.name === 'ul' || node.parent.name === 'ol')
@@ -154,9 +154,9 @@ const convertTagNode = (
       if (node.parentNode?.type === 'tag' && node.parentNode?.name === 'ol') {
         const olNum = Array.from(node.parentNode.children).indexOf(node) + 1;
 
-        return addLine + addSpace + olNum + ' ' + marks + endLine;
+        return addLine + space + olNum + ' ' + marks + endLine;
       } else {
-        return addLine + addSpace + '-' + ' ' + marks + endLine;
+        return addLine + space + '-' + ' ' + marks + endLine;
       }
     }
   }
