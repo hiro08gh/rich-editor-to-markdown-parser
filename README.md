@@ -17,7 +17,7 @@ import parse from 'rich-editor-to-markdown-parser';
 
 const html = '<h1>Hello World!</h1><p>This <strong>html</strong> string is <s>convert</s>into <a href="https://exampe.com">markdown.</a></p>'
 
-parse(html); // # Hello World!\n\nThis **html** string is ~~convert ~~into [markdown.](https://exampe.com)
+parse(html); // # Hello World!\n\nThis **html** string is ~~convert~~ into [markdown.](https://exampe.com)
 ```
 
 ※ Unsupported HTML tags are parsed as strings. When converting markdown to HTML, consider sanitizing it using [DOMPurify](https://github.com/cure53/DOMPurify) or [sanitize-html](https://github.com/apostrophecms/sanitize-html).
@@ -36,8 +36,8 @@ parse(html); // # Hello World!\n\nThis **html** string is ~~convert ~~into [mark
 | Blockquote |  |
 | CodeBlock |  |
 | Table |  |
-| ListBullet | Nesting list is not supported |
-| ListOrdered | Nesting list is not supported |
+| ListBullet |  |
+| ListOrdered |  |
 | Link |  |
 | Image |  |
 | Embed | Not supported |
@@ -47,7 +47,7 @@ parse(html); // # Hello World!\n\nThis **html** string is ~~convert ~~into [mark
 
 | Option | Description | Defualt |
 | --- | --- | --- |
-| image.size | Contain width and height image size. ex) ?w=1200&h=630 | false|
+| image.size | Contain width and height image size. ex) ?w=1200&h=630 | true |
 | image.query | Add image query in markdown. ex) ?format=webp | '' |
 | markStyle.strong | ** or __ | ** |
 | markStyle.em | *  or _ | * |

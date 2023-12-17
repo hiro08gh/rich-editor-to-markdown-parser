@@ -12,4 +12,13 @@ describe('List', () => {
     );
     expect(parsed).toBe('1 text\n2 text\n3 text');
   });
+
+  test('should return convert nested list', () => {
+    const parsed = HTMLToMarkdownParser(
+      '<ul><li>text1</li><li>text2<ul><li>text3</li><li>text4<ol><li>text5</li><li>text6</li><li>text7</li></ol></li></ul></li></ul>',
+    );
+    expect(parsed).toBe(
+      '- text1\n- text2\n  - text3\n  - text4\n    1 text5\n    2 text6\n    3 text7',
+    );
+  });
 });
