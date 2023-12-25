@@ -1,6 +1,6 @@
 {
   "name": "rich-editor-to-markdown-parser",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Rich Editor response convert to markdown.",
   "main": "./dist/rich-editor-to-markdown-parser.js",
   "module": "./dist/esm/rich-editor-to-markdown-parser.js",
