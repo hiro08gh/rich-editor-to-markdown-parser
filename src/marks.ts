@@ -1,4 +1,4 @@
-import { OptionTypes, MarkStyle } from './options';
+import { MarkStyle } from './options';
 
 const createTextMark = ({
   tagName,
