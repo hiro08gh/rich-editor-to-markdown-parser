@@ -51,6 +51,6 @@ parse(html); // # Hello World!\n\nThis **html** string is ~~convert~~ into [mark
 | image.query | Add image query in markdown. ex) ?format=webp | '' |
 | markStyle.strong | ** or __ | ** |
 | markStyle.em | *  or _ | * |
-| markStyle.li | * or - or + | * |
+| markStyle.li | - or * or + | - |
 | markStyle.hr | --- or *** or ___ | --- |
 | markStyle.pre | ``` or ~~~ | ``` |
