@@ -99,6 +99,7 @@ const convertTagNode = (
       });
     }
   }
+
   if (isCodeElement(node)) {
     if (node.name === 'div') {
       const marks = getRecursionMarks(node, image, markStyle);
@@ -239,6 +240,9 @@ const getChildNodeClass = (node: Element) => {
     .filter(Boolean);
 };
 
+/**
+ * Build image url with query params
+ */
 const buildImageUrl = (
   node: Element,
   image: { size?: boolean; query?: string },

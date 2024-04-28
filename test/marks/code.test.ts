@@ -1,5 +1,5 @@
 import { HTMLToMarkdownParser } from '../../src/html-to-markdown-parser';
-import { options } from './options';
+import { options } from './mock/options';
 
 describe('Code Block', () => {
   test('should return convert code block', () => {

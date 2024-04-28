@@ -1,5 +1,5 @@
 import { HTMLToMarkdownParser } from '../../src/html-to-markdown-parser';
-import { options } from './options';
+import { options } from './mock/options';
 
 describe('Image', () => {
   test('should return convert img to image marks', () => {
