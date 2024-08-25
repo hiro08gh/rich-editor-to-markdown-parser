@@ -13,11 +13,13 @@ npm install rich-editor-to-markdown-parser
 ## Usage
 
 ```js
-import parse from 'rich-editor-to-markdown-parser';
+import { parser } from 'rich-editor-to-markdown-parser';
+// If you are importing multiple items with the same name parser, please assign an alias to them.
+import { parser as RichEditorToMarkddownParser } from 'rich-editor-to-markdown-parser';
 
 const html = '<h1>Hello World!</h1><p>This <strong>html</strong> string is <s>convert</s>into <a href="https://exampe.com">markdown.</a></p>'
 
-parse(html); // # Hello World!\n\nThis **html** string is ~~convert~~ into [markdown.](https://exampe.com)
+parser(html); // # Hello World!\n\nThis **html** string is ~~convert~~ into [markdown.](https://exampe.com)
 ```
 
 ※ Unsupported HTML tags are parsed as strings. When converting markdown to HTML, consider sanitizing it using [DOMPurify](https://github.com/cure53/DOMPurify) or [sanitize-html](https://github.com/apostrophecms/sanitize-html).
