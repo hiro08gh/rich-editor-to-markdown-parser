@@ -1,5 +1,5 @@
-import { HTMLToMarkdownParser } from './html-to-markdown-parser';
-import type { OptionTypes } from './options';
+import { HTMLToMarkdownParser } from "./html-to-markdown-parser";
+import type { OptionTypes } from "./options";
 
 /**
  * @param html - HTML string.
@@ -7,18 +7,18 @@ import type { OptionTypes } from './options';
  * @returns - String
  */
 export const RichEditorToMarkdownParser = (
-  html: string,
-  options?: OptionTypes,
+	html: string,
+	options?: OptionTypes,
 ) => {
-  if (typeof html !== 'string') {
-    throw new TypeError('First argument must be a string');
-  }
+	if (typeof html !== "string") {
+		throw new TypeError("First argument must be a string");
+	}
 
-  if (!html) {
-    return '';
-  }
+	if (!html) {
+		return "";
+	}
 
-  return HTMLToMarkdownParser(html, options);
+	return HTMLToMarkdownParser(html, options);
 };
 
 export default RichEditorToMarkdownParser;
