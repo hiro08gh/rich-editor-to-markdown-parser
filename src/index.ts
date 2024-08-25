@@ -6,10 +6,7 @@ import type { OptionTypes } from "./options";
  * @param options - Options.
  * @returns - String
  */
-export const RichEditorToMarkdownParser = (
-	html: string,
-	options?: OptionTypes,
-) => {
+const parser = (html: string, options?: OptionTypes) => {
 	if (typeof html !== "string") {
 		throw new TypeError("First argument must be a string");
 	}
@@ -21,4 +18,4 @@ export const RichEditorToMarkdownParser = (
 	return HTMLToMarkdownParser(html, options);
 };
 
-export default RichEditorToMarkdownParser;
+export { parser };
