@@ -8,8 +8,7 @@
   "scripts": {
     "build": "tsup",
     "watch": "tsup src/index.ts --watch",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "test": "vitest",
     "lint": "biome lint ./*"
   },
   "keywords": [
@@ -23,12 +22,10 @@
   ],
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
-    "@types/jest": "^29.5.10",
-    "jest": "^29.7.0",
     "prettier": "^3.1.0",
-    "ts-jest": "^29.1.1",
     "tsup": "^8.0.1",
-    "typescript": "^5.3.2"
+    "typescript": "^5.3.2",
+    "vitest": "^2.0.5"
   },
   "dependencies": {
     "html-dom-parser": "^5.0.4"
