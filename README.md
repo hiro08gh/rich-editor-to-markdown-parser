@@ -56,3 +56,23 @@ parser(html); // # Hello World!\n\nThis **html** string is ~~convert~~ into [mar
 | markStyle.li | - or * or + | - |
 | markStyle.hr | --- or *** or ___ | --- |
 | markStyle.pre | ``` or ~~~ | ``` |
+
+## Development
+
+First, install npm dependencies.
+
+```bash
+npm install
+```
+
+Running unit test. This library uses vitest.
+
+```bash
+npm run test
+```
+
+Build modules.
+
+```bash
+npm run build
+```
