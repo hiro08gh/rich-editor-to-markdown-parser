@@ -76,3 +76,7 @@ Build modules.
 ```bash
 npm run build
 ```
+
+## License
+
+MIT License.© [hiro08gh](https://github.com/hiro08gh)
