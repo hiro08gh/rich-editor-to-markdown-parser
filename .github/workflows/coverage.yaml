@@ -1,4 +1,4 @@
-name: 'Test'
+name: 'Vitest coverage test'
 on: 
   pull_request:
 
@@ -18,7 +18,7 @@ jobs:
         node-version: '20.x'
     - name: 'Install Deps'
       run: npm install
-    - name: 'Test'
+    - name: 'Vitest run coverage test'
       run: npx vitest --coverage.enabled true
     - name: 'Report Coverage'
       if: always() 
