@@ -1,4 +1,4 @@
-import type { OptionTypes } from "../../src/options";
+import type { OptionTypes } from "../../../src/options";
 
 export const options: OptionTypes = {
 	image: {

@@ -1,7 +1,6 @@
-name: 'Vitest coverage test'
+name: 'coverage unit test'
 on: 
   pull_request:
-
 jobs:
   test:
     runs-on: ubuntu-latest

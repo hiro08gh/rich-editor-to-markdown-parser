@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { HTMLToMarkdownParser } from "../../src/html-to-markdown-parser";
+import { HTMLToMarkdownParser } from "../../../src/html-to-markdown-parser";
 
 describe("List", () => {
 	test("should return convert ul to -", () => {

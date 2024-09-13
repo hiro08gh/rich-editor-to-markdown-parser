@@ -8,9 +8,10 @@
   "scripts": {
     "build": "tsup",
     "watch": "tsup src/index.ts --watch",
+    "lint": "biome lint ./*",
     "test": "vitest",
-    "coverage": "vitest run --coverage",
-    "lint": "biome lint ./*"
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test"
   },
   "keywords": [
     "markdown",
@@ -23,6 +24,8 @@
   ],
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
+    "@playwright/test": "^1.47.0",
+    "@types/node": "^22.5.4",
     "@vitest/coverage-v8": "^2.0.5",
     "prettier": "^3.1.0",
     "tsup": "^8.0.1",

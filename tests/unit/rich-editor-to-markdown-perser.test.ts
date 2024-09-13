@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { parser } from "../src";
+import { parser } from "../../src";
 
 describe("HTMLToMarkdownParser", () => {
 	test("should return convert markdown to HTML", () => {
