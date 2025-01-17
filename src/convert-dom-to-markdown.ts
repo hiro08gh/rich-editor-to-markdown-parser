@@ -20,6 +20,13 @@ import {
 	isTextElement,
 } from "./utils";
 
+/**
+ * Converts an array of DOM nodes into a Markdown string.
+ * @param nodes - Array of DOM nodes to convert.
+ * @param image - Image conversion options.
+ * @param markStyle - Style options for Markdown formatting.
+ * @returns The generated Markdown string.
+ */
 const convertDOMToMarkdown = ({
 	nodes,
 	image,
@@ -53,14 +60,20 @@ const convertDOMToMarkdown = ({
 };
 
 /**
- * Get text in DOMNode
+ * Converts a text node into a Markdown string.
+ * @param node - The text node to convert.
+ * @returns The text content as a string.
  */
 const convertTextNode = (node: Text): string => {
 	return node.data;
 };
 
 /**
- * Converts HTML tags to marks
+ * Converts an HTML element node into Markdown based on its type.
+ * @param node - The HTML element node to convert.
+ * @param image - Image conversion options.
+ * @param markStyle - Style options for Markdown formatting.
+ * @returns The generated Markdown string for the element.
  */
 const convertTagNode = (
 	node: Element,
@@ -202,7 +215,11 @@ const convertTagNode = (
 };
 
 /**
- * Recursively process convertDOMToMarkdown to get the markdown string
+ * Recursively processes DOM nodes to generate a Markdown string.
+ * @param node - The parent DOM element.
+ * @param image - Image conversion options.
+ * @param markStyle - Style options for Markdown formatting.
+ * @returns The concatenated Markdown string for the children.
  */
 const getRecursionMarks = (
 	node: Element,
@@ -228,7 +245,9 @@ const getRecursionMarks = (
 };
 
 /**
- * Get child node class.
+ * Extracts the class names of a node's children.
+ * @param node - The DOM element.
+ * @returns An array of class names.
  */
 const getChildNodeClass = (node: Element) => {
 	return node.children
@@ -236,6 +255,12 @@ const getChildNodeClass = (node: Element) => {
 		.filter(Boolean);
 };
 
+/**
+ * Builds an image URL with optional size and query parameters.
+ * @param node - The image DOM element.
+ * @param image - Image conversion options (size and query parameters).
+ * @returns The constructed image URL.
+ */
 const buildImageUrl = (
 	node: Element,
 	image: { size?: boolean; query?: string },
@@ -259,6 +284,12 @@ const buildImageUrl = (
 	return url.href;
 };
 
+/**
+ * Calculates the nesting depth of a list element.
+ * @param node - The list element.
+ * @param currentDepth - The current depth (default is 0).
+ * @returns The calculated depth.
+ */
 const findDepth = (node: Element, currentDepth = 0): number => {
 	const depth = currentDepth;
 
