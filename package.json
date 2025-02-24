@@ -25,11 +25,14 @@
     "@biomejs/biome": "1.8.3",
     "@vitest/coverage-v8": "^3.0.4",
     "prettier": "^3.1.0",
-    "tsup": "^8.0.1",
+    "tsup": "^2.0.3",
     "typescript": "^5.3.2",
     "vitest": "^3.0.4"
   },
   "dependencies": {
     "html-dom-parser": "^5.0.4"
+  },
+  "volta": {
+    "node": "22.14.0"
   }
 }
