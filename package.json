@@ -22,7 +22,7 @@
     "dist"
   ],
   "devDependencies": {
-    "@biomejs/biome": "1.8.3",
+    "@biomejs/biome": "1.9.4",
     "@vitest/coverage-v8": "^3.0.4",
     "prettier": "^3.1.0",
     "tsup": "^2.0.3",
