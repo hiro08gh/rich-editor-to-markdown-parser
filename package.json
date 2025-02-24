@@ -6,7 +6,7 @@
   "module": "./dist/esm/rich-editor-to-markdown-parser.js",
   "types": "./dist/rich-editor-to-markdown-parser.d.ts",
   "scripts": {
-    "build": "tsup",
+    "build": "tsup src/index.ts",
     "watch": "tsup src/index.ts --watch",
     "test": "vitest",
     "coverage": "vitest run --coverage",
