@@ -31,7 +31,7 @@
     "vitest": "^4.1.5"
   },
   "dependencies": {
-    "html-dom-parser": "^7.0.1"
+    "html-dom-parser": "^8.0.0"
   },
   "volta": {
     "node": "22.14.0"
